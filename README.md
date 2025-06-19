@@ -38,6 +38,14 @@ Minimum requirements:
 
 Approximate run time: ~40min for 1 million reads in total (24 barcodes) using Kraken2 and the Standard-8 database (using a previously downloaded db).
 
+### High performance compute nodes
+
+For systems with large numbers of CPU cores and ample memory (for example a node
+with 128 threads and 256 GB RAM), increase `--threads` and `--ingress_threads`
+to utilise the available resources. When working with Kraken2 databases larger
+than the available memory, enable `--kraken2_memory_mapping` to reduce RAM
+usage.
+
 ARM processor support: True
 
 
@@ -239,6 +247,7 @@ input_reads.fastq   ─── input_directory  ─── input_directory
 | min_read_qual | number | Specify read quality lower limit. | Any reads with a quality lower than this limit will not be included in the analysis. |  |
 | max_len | integer | Specify read length upper limit | Any reads longer than this limit will not be included in the analysis. |  |
 | threads | integer | Maximum number of CPU threads to use in each parallel workflow task. | Several tasks in this workflow benefit from using multiple CPU threads. This option sets the number of CPU threads for all such processes. See server threads parameter for Kraken specific threads in the real_time pipeline. | 4 |
+| ingress_threads | integer | CPU threads for ingestion steps. | Adjusts the number of CPU threads used by fastcat and BAM processing tasks. | 4 |
 
 
 
