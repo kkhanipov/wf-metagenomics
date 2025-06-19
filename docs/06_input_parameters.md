@@ -101,5 +101,6 @@
 | min_read_qual | number | Specify read quality lower limit. | Any reads with a quality lower than this limit will not be included in the analysis. |  |
 | max_len | integer | Specify read length upper limit | Any reads longer than this limit will not be included in the analysis. |  |
 | threads | integer | Maximum number of CPU threads to use in each parallel workflow task. | Several tasks in this workflow benefit from using multiple CPU threads. This option sets the number of CPU threads for all such processes. See server threads parameter for Kraken specific threads in the real_time pipeline. | 4 |
+| ingress_threads | integer | CPU threads for ingestion steps. | Adjusts the number of CPU threads used by fastcat and BAM processing tasks. | 4 |
 
 
